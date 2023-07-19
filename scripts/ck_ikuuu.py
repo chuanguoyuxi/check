@@ -15,9 +15,9 @@ class Ikuuu:
         self.check_item = check_item
 
     @staticmethod
-    def login(name, email, passwd):
+    def login(baseUrl, name, email, passwd):
         try:
-            url = "https://ikuuu.eu/auth/login"
+            url = baseUrl + "/auth/login"
             headers = {
                 "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
                 "cookie": "lang=zh-cn",
@@ -44,9 +44,9 @@ class Ikuuu:
         return msg, cookie
 
     @staticmethod
-    def checkin(cookie):
+    def checkin(baseUrl, cookie):
         try:
-            url = "https://ikuuu.eu/user/checkin"
+            url = baseUrl + "/user/checkin"
             headers = {
                 "cookie": cookie,
                 "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36 Edg/112.0.1722.58",
@@ -62,11 +62,12 @@ class Ikuuu:
         return msg
 
     def main(self):
+        baseUrl = self.check_item.get("baseUrl")
         name = self.check_item.get("name")
         email = self.check_item.get("email")
         passwd = self.check_item.get("passwd")
-        login_msg, cookie = self.login(name=name, email=email, passwd=passwd)
-        checkin_msg = self.checkin(cookie=cookie)
+        login_msg, cookie = self.login(baseUrl=baseUrl, name=name, email=email, passwd=passwd)
+        checkin_msg = self.checkin(baseUrl=baseUrl, cookie=cookie)
         msg = [login_msg, checkin_msg]
         msg = "\n".join([f"{one.get('name')}: {one.get('value')}" for one in msg])
         return msg

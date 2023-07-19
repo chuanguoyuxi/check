@@ -4,11 +4,13 @@
 # https://ikuuu.eu/auth/register?code=kYZQ
 ######### 多账号示例 #########
 [[IKUUU]]
+baseUrl = ""
 name = ""
 email = ""
 passwd = ""
 
 [[IKUUU]]
+baseUrl = ""
 name = ""
 email = ""
 passwd = ""
@@ -18,3 +20,5 @@ passwd = ""
 # https://juejin.cn cookie
 [[JUEJIN]]
 cookie = ""
+username = ""
+password = ""
