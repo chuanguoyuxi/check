@@ -22,3 +22,15 @@ passwd = ""
 cookie = ""
 username = ""
 password = ""
+
+# 阿里云盘【WEB】
+# https://juejin.cn refresh_token
+[[ALIYUNDRIVE]]
+refresh_token = ""
+username = ""
+password = ""
+
+# 百度贴吧【WEB】
+# http://tieba.baidu.com cookie
+[[TIEBA]]
+cookie = ""
