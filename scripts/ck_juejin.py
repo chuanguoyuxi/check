@@ -308,17 +308,6 @@ class Juejin:
         getCurPoint_msg = self.getCurPoint(headers=headers)  # 查询当前矿石
         msg.append(getCurPoint_msg)
 
-        # msg = (
-        #     [
-        #         userGet_msg,
-        #         getTodayStatus_msg,
-        #         getCounts_msg,
-        #         getCurPoint_msg,
-        #         lotteryConfigGet_msg,
-        #     ]
-        #     + lotteryDraw_msg_list
-        #     + [lotteryHistoryGlobalBig_msg, lotteryLuckyDipLucky_msg]
-        # )
         print(msg)
         msg = "\n".join([f"{one.get('name')}: {one.get('value')}" for one in msg])
         return msg

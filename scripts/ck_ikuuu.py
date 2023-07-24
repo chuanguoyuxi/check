@@ -66,7 +66,9 @@ class Ikuuu:
         name = self.check_item.get("name")
         email = self.check_item.get("email")
         passwd = self.check_item.get("passwd")
-        login_msg, cookie = self.login(baseUrl=baseUrl, name=name, email=email, passwd=passwd)
+        login_msg, cookie = self.login(
+            baseUrl=baseUrl, name=name, email=email, passwd=passwd
+        )
         checkin_msg = self.checkin(baseUrl=baseUrl, cookie=cookie)
         msg = [login_msg, checkin_msg]
         msg = "\n".join([f"{one.get('name')}: {one.get('value')}" for one in msg])
